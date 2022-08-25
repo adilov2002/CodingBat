@@ -3,6 +3,7 @@ public class Logic1 {
     public static void main(String[] args) {
         // to check my username on github
         // second try
+        // third try
     }
 
     public static boolean lessBy10(int a, int b, int c) {
