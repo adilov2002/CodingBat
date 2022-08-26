@@ -4,6 +4,76 @@ public class Logic1 {
 
     }
 
+    public static int sumLimit(int a, int b) {
+        String numA = String.valueOf(a);
+        String sumAB = String.valueOf(a + b);
+        if (numA.length() < sumAB.length()) {
+            return a;
+        }
+        return a + b;
+    }
+
+    public static boolean shareDigit(int a, int b) {
+        return a % 10 == b % 10 || a % 10 == b / 10 || a / 10 == b / 10 || a / 10 == b % 10;
+    }
+
+    public static int blueTicket(int a, int b, int c) {
+        int sum1 = a + b;
+        int sum2 = b + c;
+        int sum3 = a + c;
+        if (sum1 == 10 || sum2 == 10 || sum3 == 10) {
+            return 10;
+        }
+        if (sum1 == sum2 + 10 || sum1 == sum3 + 10) {
+            return 5;
+        }
+        return 0;
+    }
+    
+    public static int greenTicket(int a, int b, int c) {
+        if (a == b && b == c) {
+            return 20;
+        }
+        if (a == b || b == c || a == c) {
+            return 10;
+        }
+        return 0;
+    }
+
+    public static int redTicket(int a, int b, int c) {
+        if (a == 2 && a == b && a == c) {
+            return 10;
+        }
+        if (a == b && b == c) {
+            return 5;
+        }
+        if (a != b && a != c) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public static int maxMod5(int a, int b) {
+        if (a == b) {
+            return 0;
+        }
+        if (a % 5 == b % 5) {
+            return Math.min(a, b);
+        }
+        return Math.max(a, b);
+    }
+
+    public static int withoutDoubles(int die1, int die2, boolean noDoubles) {
+        if (noDoubles && die1 == die2) {
+            if (die1 == 6) {
+                die1 = 1;
+            } else {
+                die1++;
+            }
+        }
+        return die1 + die2;
+    }
+
     public static boolean lessBy10(int a, int b, int c) {
         //return (Math.abs(a - b) >= 10 ||  their solution
         //Math.abs(b - c) >= 10 ||
