@@ -1,3 +1,5 @@
+package codingbat;
+
 import java.util.ArrayList;
 
 public class WarmUpOne {

@@ -1,3 +1,5 @@
+package codingbat;
+
 public class WarmUpTwo {
 
     public static void main(String[] args) {
