@@ -8,13 +8,13 @@ public class SimpleDotComGame {
 
         GameHelper helper = new GameHelper();
 
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
 
         int randomNumber = (int) (Math.random() * 5);
 
         int[] locations = {randomNumber, randomNumber + 1, randomNumber + 2};
 
-        dot.setLocationCells(locations);
+//        dot.setLocationCells(locations);
 
         boolean isAlive = true;
 
