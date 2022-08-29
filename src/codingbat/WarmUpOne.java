@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class WarmUpOne {
     public static void main(String[] args) {
-        ArrayList<String> strings = new ArrayList<>() {{
+        ArrayList<String> strings = new ArrayList<String>() {{
             add("text");
             add("nottext");
             add("not text");
