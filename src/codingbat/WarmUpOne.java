@@ -52,7 +52,7 @@ public class WarmUpOne {
     public static boolean stringE(String str) {
         int count = 0;
 
-        for (int i = 0; i < str.length(); i++){
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == 'e') {
                 count++;
             }
@@ -66,8 +66,7 @@ public class WarmUpOne {
             return Math.max(a, b);
         } else if (a >= 10 && a <= 20) {
             return a;
-        }
-        else if  (b <= 20 && b >= 10) {
+        } else if (b <= 20 && b >= 10) {
             return b;
         } else {
             return 0;
@@ -105,7 +104,7 @@ public class WarmUpOne {
 
     public static String startOz(String str) {
         String res = "";
-        if (str.isEmpty()){
+        if (str.isEmpty()) {
             return res;
         }
 

@@ -12,7 +12,7 @@ public class Logic2 {
         }
         if (bigBar < goal) {
             if (goal - bigBar <= small) {
-                return goal - bigBar ;
+                return goal - bigBar;
             }
         } else {
             if (goal % 5 <= small) {
@@ -45,7 +45,7 @@ public class Logic2 {
                 small = c;
                 medium = b;
                 large = a;
-            } else if (a > c){
+            } else if (a > c) {
                 small = b;
                 medium = c;
                 large = a;

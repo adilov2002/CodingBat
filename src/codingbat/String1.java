@@ -8,7 +8,7 @@ public class String1 {
 
     public static String withoutX2(String str) {
         if (str.length() > 1 && str.charAt(1) == 'x') {
-            str = str.replaceFirst(str.charAt(1)+"", "");
+            str = str.replaceFirst(str.charAt(1) + "", "");
         }
         if (str.length() > 0 && str.charAt(0) == 'x') {
             str = str.substring(1);
@@ -21,7 +21,7 @@ public class String1 {
             return str;
         }
 
-        if (str.charAt(0) == 'x'){
+        if (str.charAt(0) == 'x') {
             str = str.substring(1);
         }
         if (!str.isEmpty() && str.charAt(str.length() - 1) == 'x') {
@@ -31,7 +31,7 @@ public class String1 {
     }
 
     public static String startWord(String str, String word) {
-        if (str.length() >= word.length() && str.substring(1, word.length()).equals(word.substring(1))){
+        if (str.length() >= word.length() && str.substring(1, word.length()).equals(word.substring(1))) {
             return str.substring(0, word.length());
         }
         return "";

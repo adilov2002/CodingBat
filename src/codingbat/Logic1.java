@@ -31,7 +31,7 @@ public class Logic1 {
         }
         return 0;
     }
-    
+
     public static int greenTicket(int a, int b, int c) {
         if (a == b && b == c) {
             return 20;
@@ -113,7 +113,7 @@ public class Logic1 {
         if (n % 5 == 0) {
             return "Buzz!";
         }
-        return n+"!";
+        return n + "!";
     }
 
     public static String fizzString(String str) {

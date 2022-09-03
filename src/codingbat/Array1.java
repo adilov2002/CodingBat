@@ -83,7 +83,7 @@ public class Array1 {
     }
 
     public static int[] midThree(int[] nums) {
-        return new int[] {
+        return new int[]{
                 nums[nums.length / 2 - 1],
                 nums[nums.length / 2],
                 nums[nums.length / 2 + 1]
@@ -187,7 +187,7 @@ public class Array1 {
         } else {
             max = nums[0];
         }
-        return new int[] {max, max, max};
+        return new int[]{max, max, max};
     }
 
     public static int[] reverse3(int[] nums) {
