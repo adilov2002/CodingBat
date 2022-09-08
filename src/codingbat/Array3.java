@@ -1,9 +1,31 @@
 package codingbat;
 
+import java.util.Arrays;
+
 public class Array3 {
 
     public static void main(String[] args) {
+        maxMirror(new int[]{1, 2, 3, 2, 1});
+    }
 
+    public static int countClumps(int[] nums) {
+        if (nums.length < 2) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                count++;
+                for(int j = i + 1; j < nums.length; j++) {
+                    if (nums[i] == nums[j]) {
+                        i = j;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return count;
     }
 
     public static int maxMirror(int[] nums) {
@@ -12,26 +34,69 @@ public class Array3 {
         }
         int count = 0;
         int max = 0;
+        int prevFront = 0;
+        int prevBack = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == nums[nums.length - i - 1]) {
-                for (int j = i, p = nums.length - 1; j < nums.length; j++, p--) {
-                    if (j == p) {
-                        count = count * 2 + 1;
-                        break;
-                    }
-                    if (nums[j] == nums[p]) {
-                        count++;
-                    } else {
-                        break;
-                    }
+            int[] arr = new int[nums.length - i];
+            for (int j = nums.length - 1, k = i; k < nums.length && j > 0;) {
+                if (nums[k] == nums[j] && k == j && arr.length > 1 && prevBack == prevFront) {
+                    prevFront = nums[k];
+                    prevBack = nums[j];
+                    arr[count++] = nums[k++];
+                    j--;
+                } else if (nums[k] == nums[j] && prevBack == prevFront) {
+                    prevFront = nums[k];
+                    prevBack = nums[j];
+                    arr[count++] = nums[k++];
+                    j--;
+                    continue;
+                } else if (count == 0) {
+                    j--;
                 }
-                if (count > max) {
-                    max = count;
+                if (prevBack == prevFront && k < nums.length && nums[k] == nums[j]) {
+                    prevFront = nums[k];
+                    prevBack = nums[j];
+                    arr[count++] = nums[k++];
+                    j--;
+                    continue;
                 }
-                count = 0;
+                if (k > j) {
+                    break;
+                } else {
+                    prevBack = nums[j];
+                    j--;
+                }
             }
+            prevFront = 0;
+            prevBack = 0;
+            if (count > max) {
+                max = count;
+            }
+            count = 0;
+            System.out.println(Arrays.toString(arr));
         }
         return max;
+
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] == nums[nums.length - i - 1]) {
+//                for (int j = i, p = nums.length - 1; j < nums.length; j++, p--) {
+//                    if (j == p) {
+//                        count = count * 2 + 1;
+//                        break;
+//                    }
+//                    if (nums[j] == nums[p]) {
+//                        count++;
+//                    } else {
+//                        break;
+//                    }
+//                }
+//                if (count > max) {
+//                    max = count;
+//                }
+//                count = 0;
+//            }
+//        }
+//        return max;
     }
 
     public static int[] seriesUp(int n) {
