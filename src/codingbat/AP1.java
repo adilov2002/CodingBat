@@ -2,12 +2,51 @@ package codingbat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AP1 {
 
     public static void main(String[] args) {
         AP1 ap1 = new AP1();
     }
+
+    public int commonTwo(String[] a, String[] b) {
+        int count = 0;
+        char prev = '?';
+        for (int ai = 0, bi = 0; ai < a.length && bi < b.length; ) {
+            if (a[ai].charAt(0) < b[bi].charAt(0)) {
+                ai++;
+            } else if (a[ai].charAt(0) > b[bi].charAt(0)) {
+                bi++;
+            } else if (prev == a[ai].charAt(0)) {
+                ai++;
+                bi++;
+            } else {
+                ai++;
+                bi++;
+                prev = a[ai - 1].charAt(0);
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    public String[] mergeTwo(String[] a, String[] b, int n) {
+        String[] res = new String[n];
+        for (int i = 0, ai = 0, bi = 0; i < n; i++) {
+            if (a[ai].charAt(0) < b[bi].charAt(0)) {
+                res[i] = a[ai++];
+            } else if (a[ai].charAt(0) > b[bi].charAt(0)) {
+                res[i] = b[bi++];
+            } else {
+                res[i] = a[ai++];
+                bi++;
+            }
+        }
+        return res;
+    }
+
 
     public int userCompare(String aName, int aId, String bName, int bId) {
         int nameCompare = aName.compareTo(bName);
@@ -53,6 +92,7 @@ public class AP1 {
         int largest2 = getLargest(b);
         return largest1 + largest2;
     }
+
     public int getLargest(int[] arr) {
         int largest = 0;
         for (int j : arr) {
@@ -84,7 +124,7 @@ public class AP1 {
         for (int i = 0; i < key.length; i++) {
             if (key[i].equals(answers[i])) {
                 score += 4;
-            } else if(answers[i].equals("?")) {
+            } else if (answers[i].equals("?")) {
                 continue;
             } else {
                 score += -1;
@@ -209,7 +249,7 @@ public class AP1 {
     }
 
     public boolean scoresIncreasing(int[] scores) {
-        for (int i = 0; i < scores.length - 1; i++){
+        for (int i = 0; i < scores.length - 1; i++) {
             if (scores[i] > scores[i + 1]) {
                 return false;
             }
